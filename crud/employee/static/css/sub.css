@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    color:#333 ;
+    align-items: center;
+    min-height: 100vh ;
+    background: rgb(2,0,36);
+    background: rgb(252, 251, 251) 35%;
+}
+.Wrapper {
+    width: 1200px;
+    background: transparent;
+    color: #0a0a0a;
+    border-radius: 12px;
+    padding: 30px 30px;
+    border: 50px solid rgba(255, 255 , 255 , 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    margin-top: 10px;
+}
+.Wrapper h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #0d0c0c;
+    margin-top: 5px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.approve {
+  background-color: #012c1c; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+.reject {
+    background-color: #b9b9b9; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  color: wheat;
+}
+.add a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 90px;
+}

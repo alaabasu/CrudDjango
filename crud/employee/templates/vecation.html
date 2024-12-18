@@ -1,0 +1,80 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vec.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo">
+               <h1>HR</h1>
+            </div>
+            <ul>
+                <li><a href="{% url 'main-page' %}">Home</a></li>
+                <li><a href="{% url 'add_employee' %}">Add</a></li>
+                <li><a href="{% url 'search-employees' %}" target="_blank">Search</a></li>
+                <li><a href="{% url 'ShowPage' %}" target="_blank">Show</a></li>
+                <li><a href="{% url 'submitted' %}" target="_blank">Submitted vacations</a></li>
+            </ul>
+        </div>
+<div class="body">
+    <div class="Wrapper" >
+        <h1>Submit a Vacation Form</h1>
+        <form  method="post" action="{% url 'submit_vacation' employee_id %}">
+
+            {% csrf_token %}
+
+            <div class="input-box">
+                <label>Employee ID:</label>
+             {{form.employee_id}}
+            </div>
+            <br>
+            <br>
+            <div class="input-box">
+                <label>From Date :</label>
+                {{form.from_date}} 
+            </div>
+            <br>
+            <br>
+            <div class="input-box">
+                <label>To Date :</label>
+                {{form.to_date}}
+            </div>
+            <br>
+            <div class="input-box">
+                <label >reason :</label>
+                {{form.reason}} 
+            </div>
+            <br>
+            <br>
+
+            <br>
+            <button type="submit" class="submit">Submit</button>
+        </form>
+    </div>
+</div>
+    <div class="footer">
+        <div class="col_1">
+            <h3>Useful Links</h3>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col_2">
+            <h3>Contact</h3>
+            <p>233, Salam Road<br>Smart Village</p>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>                
+                <i class="fa-brands fa-twitter"></i>                 
+                <i class="fa-brands fa-instagram"></i>             
+            </div>
+        </div>
+    </div>
+</body>
+</html>

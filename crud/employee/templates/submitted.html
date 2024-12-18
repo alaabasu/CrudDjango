@@ -1,0 +1,80 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted vacations</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sub.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <div class="banner">
+    <div class="navbar">
+        <div class="logo">
+           <h1>HR</h1>
+        </div>
+        <ul>
+            <li><a href="{% url 'main-page' %}">Home</a></li>
+            <li><a href="{% url 'add_employee' %}">Add</a></li>
+            <li><a href="{% url 'search-employees' %}" target="_blank">Search</a></li>
+            <li><a href="{% url 'ShowPage' %}" target="_blank">Show</a></li>
+            <li><a href="{% url 'submitted' %}" target="_blank">Submitted vacations</a></li>
+        </ul>
+  </div>
+  <div class="body">
+    <div class="Wrapper">
+      <h1>Submitted Vacations Form </h1>
+      <!--<form action="/vacation-requests" id="myForm">-->
+        <table>
+          <thead>
+              <tr>
+                  <th>Employee ID</th>
+                  <th>From Date</th>
+                  <th>To Date</th>
+                  <th>Reason</th>
+              </tr>
+          </thead>
+          <tbody>
+            {% if vacations %}
+                {% for vac in vacations %}
+                    <tr>
+                        <td>{{vac.employee_id }}</td>
+                        <td>{{vac.from_date }}</td>
+                        <td>{{vac.to_date }}</td>
+                        <td>{{vac.reason }}</td>
+                        <td>
+                            <button class="approve" data-vacation-id="{{ vac.id }}">Approve</button>
+</td>
+                        <td>
+                            <button class="reject"><a href="/des/{{vac.id}}">Reject</a></button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No vacation requests submitted yet.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+          </tbody>
+      </table>
+        <br>
+        
+      </form>      
+  <br>
+  <br>
+  </div>
+  </div>
+  </div>
+
+
+  <button class="add"><a href="/emp">Add New Employee</a>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+</body>
+</html>

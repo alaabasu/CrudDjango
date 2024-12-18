@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Record</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/showStyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="cover">
+          <div class="tb">
+            <div class="td"><input type="text" name="search" placeholder="Search by ID" required></div>
+            <div class="td" id="s-cover">
+              <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Gender</th>
+                <th>Marital</th>
+                <th>Available Days</th>
+                <th>Vecation Days</th>
+                <th>Employee Approvable</th>
+                <th>Employee Salary</th>
+                <th>eDateofBirth</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.eid }}</td>
+                        <td>{{ employee.ename }}</td>
+                        <td>{{ employee.eemail }}</td>
+                        <td>{{ employee.eaddress }}</td>
+                        <td>{{ employee.ephonenumber }}</td>
+                        <td>{{ employee.egender }}</td>
+                        <td>{{ employee.eMarital }}</td>
+                        <td>{{ employee.enumberofavailable}}</td>
+                        <td>{{ employee.evecationday }}</td>
+                        <td>{{ employee.eApprocedvecation }}</td>
+                        <td>{{ employee.eSalary }}</td>
+                        <td>{{ employee.eDateofBirth }}</td>
+                        <td>
+                            <button><a href="/edit/{{ employee.id }}" class="edit">Edit</a></button>
+                            <button onclick="confirmDelete('{{ employee.id }}')" class="del">Delete</button>
+                            <button><a href="/submit-vacation/{{ employee.eid }}/" class="vec">Vacation</a></button>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <button class="add"><a href="/emp">Add New Employee</a></button>
+    <div class="footer">
+        <div class="col_1">
+            <h3>Useful Links</h3>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col_2">
+            <h3>Contact</h3>
+            <p>233, Salam Road<br>Smart Village</p>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>                
+                <i class="fa-brands fa-twitter"></i>                 
+                <i class="fa-brands fa-instagram"></i>             
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,125 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <div class="logo">
+               <h1>HR</h1>
+            </div>
+            <ul>
+                <li><a href="{% url 'main-page' %}">Home</a></li>
+                <li><a href="{% url 'add_employee' %}">Add</a></li>
+                <li><a href="{% url 'search-employees' %}" target="_blank">Search</a></li>
+                <li><a href="{% url 'ShowPage' %}" target="_blank">Show</a></li>
+                <li><a href="{% url 'submitted' %}" target="_blank">Submitted vacations</a></li>
+            </ul>
+        </div>
+
+    <div class="body">
+        <div class="Wrapper">
+            <form method="post" action="/emp" id="your-form-id">
+                <h3>Add new employee</h3>
+
+                {% csrf_token %}
+
+                <div class="input-box">
+                    <label>Employee ID:</label>
+                   {{ form.eid }} 
+                </div>
+
+                <div class="input-box">
+                    <label id="name">Employee Name:</label>
+                    {{ form.ename }}
+                    <div id="error-message"></div>
+                </div>
+
+                <div class="input-box">
+                    <label id="email">Employee Email:</label>
+                    {{ form.eemail }}
+                    <div id="error-message"></div>
+                </div>
+
+                <div class="input-box">
+                    <label>Employee Address:</label>
+                    {{ form.eaddress }}
+                </div>
+
+                <div class="input-box" >
+                    <label for="phonenumber">Employee Phone Number:</label>
+                    {{ form.ephonenumber }}
+                </div>
+
+                <div class="input-box">
+                    <label>Employee Gender:</label>
+                    {{ form.egender }}
+                </div>
+
+                <div class="input-box">
+                    <label>Employee Marital:</label>
+                    {{ form.eMarital }}
+                </div>
+
+                <div class="input-box">
+                    <label>Employee Available Days:</label>
+                    {{ form.enumberofavailable }}
+                </div>
+
+                <div class="input-box">
+                    <label>Employee Vacation Days:</label>
+                    {{ form.evecationday }}
+                </div>
+
+                <div class="input-box">
+                    <label>Employee Approvable:</label>
+                    {{ form.eApprocedvecation }}
+                </div>
+
+                <div class="input-box">
+                    <label id="Salary">Employee Salary:</label>
+                    {{ form.eSalary }}
+                    <div id="error-message"></div>
+                </div>
+
+                <div class="input-box">
+                    <label id="date">Employee Date of Birth:</label>
+                    {{ form.eDateofBirth }}
+                </div>
+                
+                <button type="submit" class="add" onclick="validateForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="col_1">
+            <h3>Useful Links</h3>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="col_2">
+            <h3>Contact</h3>
+            <p>233, Salam Road<br>Smart Village</p>
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook"></i>                
+                <i class="fa-brands fa-twitter"></i>                 
+                <i class="fa-brands fa-instagram"></i>             
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
+
